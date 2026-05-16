@@ -13,6 +13,9 @@ namespace Modules
             IsViewComponent().UlCssClass("nav flex-column");
             RootCssClass("sidebar-menu");
 
+            Link("Departments").Go<Admin.DepartmentsPage>().Icon(fa.building);
+            Link("Employees").Go<Admin.EmployeesPage>().Icon(fa.users);
+
             Link("Logout")
                  .CssClass("align-bottom logout")
                  .ValidateAntiForgeryToken(false)
