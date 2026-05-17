@@ -18,6 +18,7 @@ namespace Modules
             Link("Orders").Go<Admin.OrdersPage>().Icon(FA.ShoppingCart);
             Link("Customers").Go<Admin.CustomersPage>().Icon(FA.AddressBook);
             Link("Students").Go<Admin.StudentsPage>().Icon(FA.GraduationCap);
+            Link("Courses").Go<Admin.CoursesPage>().Icon(FA.Book);
             Link("Departments").Go<Admin.DepartmentsPage>().Icon(FA.Building);
             Link("Employees").Go<Admin.EmployeesPage>().Icon(FA.Users);
 

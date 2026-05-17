@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
-    public sealed class SeedCustomer : Customer { }
-
     public class ReferenceData : IReferenceData
     {
         static IDatabase Database => Context.Current.Database();
@@ -52,7 +50,7 @@ namespace Domain
                 Category = books
             });
 
-            var customer = await Create(new SeedCustomer
+            var customer = await Create(new Customer
             {
                 FirstName = "Ahmed",
                 LastName = "Ali",

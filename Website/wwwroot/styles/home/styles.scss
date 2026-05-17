@@ -8,6 +8,36 @@
     color: #1a2b3c;
     background: linear-gradient(145deg, #0f2f2e 0%, #1a4a49 35%, #2cb3b1 100%);
 
+    &__header {
+        display: flex;
+        justify-content: center;
+        padding: 1.25rem 1.5rem 0;
+    }
+
+    &__logo {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.5rem 1rem;
+        background: rgba(255, 255, 255, 0.12);
+        border-radius: 0.5rem;
+        transition: background-color 0.2s, transform 0.15s;
+
+        &:hover,
+        &:focus {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-1px);
+        }
+
+        img {
+            display: block;
+            height: 2.75rem;
+            width: auto;
+            max-width: 10rem;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+    }
+
     &__hero {
         flex: 1;
         display: flex;
@@ -17,7 +47,7 @@
     }
 
     &__panel {
-        max-width: 52rem;
+        max-width: 56rem;
         width: 100%;
         background: rgba(255, 255, 255, 0.97);
         border-radius: 1rem;
@@ -95,6 +125,46 @@
         }
     }
 
+    &__dashboard {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+        gap: 1rem;
+        margin-bottom: 2rem;
+        text-align: left;
+    }
+
+    &__card {
+        display: block;
+        padding: 1rem 1.1rem;
+        background: $color-primary-lighten;
+        border-radius: 0.5rem;
+        border-left: 0.25rem solid $color-primary;
+        text-decoration: none;
+        color: inherit;
+        transition: transform 0.15s, box-shadow 0.15s;
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0.35rem 1rem rgba(0, 0, 0, 0.08);
+            color: inherit;
+        }
+
+        strong {
+            display: block;
+            color: $color-primary-darken;
+            margin-bottom: 0.25rem;
+        }
+
+        span {
+            font-size: 0.85rem;
+            color: #4a5d6e;
+        }
+    }
+
+    &__actions--admin {
+        margin-bottom: 0;
+    }
+
     &__features {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
@@ -124,10 +194,28 @@
     }
 
     &__footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.35rem;
         text-align: center;
-        padding: 1rem;
+        padding: 1.25rem 1rem 1.5rem;
         font-size: 0.85rem;
-        color: rgba(255, 255, 255, 0.75);
+        color: rgba(255, 255, 255, 0.85);
+    }
+
+    &__copyright {
+        font-weight: 500;
+    }
+
+    &__footer-note a {
+        color: rgba(255, 255, 255, 0.95);
+        text-decoration: underline;
+        text-underline-offset: 0.15em;
+
+        &:hover {
+            color: #fff;
+        }
     }
 }
 

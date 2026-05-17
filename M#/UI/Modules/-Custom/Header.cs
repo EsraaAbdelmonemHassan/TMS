@@ -11,9 +11,6 @@ namespace Modules
             WrapInForm();
             Using("Olive.Security");
             RootCssClass("header-wrapper");
-            var logo = Image("Logo").CssClass("logo").ImageUrl("~/img/Logo.png")
-                  .OnClick(x => x.Go("~/"));
-
             var burger = Link("Burger")
                 .NoText()
                 .Icon("fas")
@@ -38,7 +35,9 @@ namespace Modules
             <nav class=""navbar"">
               <div class=""header-left-actions-wrapper"">
                       {burger.Ref}
-                      {logo.Ref}
+                      <a class=""logo"" href=""/home"" title=""TMS Home"" name=""Logo"">
+                          <img src=""/img/Logo.png"" alt=""TMS – Training Management System"" />
+                      </a>
               </div>
               <div class=""header-account-wrapper"">
                     {logout.Ref}

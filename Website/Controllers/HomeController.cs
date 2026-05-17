@@ -6,7 +6,10 @@ namespace Controllers
     public class HomeController : Controller
     {
         [HttpGet("")]
-        public IActionResult Index() =>
-            View("~/Views/Home/Index.cshtml");
+        public IActionResult Index()
+        {
+            ViewBag.IsAdmin = User.IsInRole("Admin");
+            return View("~/Views/Home/Index.cshtml");
+        }
     }
 }

@@ -17,13 +17,23 @@ namespace Modules
                 .Using("Olive.Security")
                 .RootCssClass("website-footer")
                 .Markup(@"
-           <div>
-               [#BUTTONS(Email)#]
-               [#BUTTONS(LinkedIn)#]
-               [#BUTTONS(Facebook)#]
-               [#BUTTONS(Twitter)#] <br/>
-               [#BUTTONS(SoftwareDevelopment)#] by [#BUTTONS(Geeks)#]
-                &copy; @LocalTime.Now.Year. All rights reserved.
+            <div class=""footer-inner"">
+                <div class=""footer-brand"">
+                    <span class=""footer-app-name"">TMS</span>
+                    <span class=""footer-tagline"">Training Management System</span>
+                </div>
+                <div class=""footer-social"" aria-label=""Social links"">
+                    [#BUTTONS(Email)#]
+                    [#BUTTONS(LinkedIn)#]
+                    [#BUTTONS(Facebook)#]
+                    [#BUTTONS(Twitter)#]
+                </div>
+                <div class=""footer-legal"">
+                    <span class=""footer-copyright"">&copy; @LocalTime.Now.Year TMS. All rights reserved.</span>
+                    <span class=""footer-credit"">
+                        [#BUTTONS(SoftwareDevelopment)#] by [#BUTTONS(Geeks)#]
+                    </span>
+                </div>
             </div>");
 
 

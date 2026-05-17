@@ -6,36 +6,84 @@ header {
             color: $on-color-primary;
             height: $header-height;
             max-height: $header-height;
-            padding:0;
-
+            padding: 0 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
 
             a {
                 color: $on-color-primary;
+                text-decoration: none;
+
+                &:hover,
+                &:focus {
+                    color: $color-primary;
+                    text-decoration: none;
+                }
             }
 
             .header-left-actions-wrapper {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                flex: 0 0 auto;
+                min-width: 0;
+
+                @include for-tablet-landscape-up {
+                    flex: 0 0 $sidebar-width;
+                    justify-content: center;
+                }
 
                 .menu-toggler {
                     @include burger-menu-toggler();
                 }
 
                 .logo {
-                    width:30%;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 0.35rem 0.5rem;
+                    line-height: 0;
+                    flex-shrink: 0;
+
                     img {
-                        max-width:100%;
-                        max-height: 4rem;
+                        display: block;
+                        width: auto;
+                        height: 2.75rem;
+                        max-width: 10rem;
+                        max-height: 3.25rem;
+                        object-fit: contain;
                     }
                 }
-
-                /*@include for-tablet-portrait-up {*/
-                    flex: 0 0 $sidebar-width;
-                    text-align: center;
-                /*}*/
             }
 
             .header-account-wrapper {
-                padding: 0 1rem;
+                display: flex;
+                align-items: center;
+                padding: 0 0.5rem;
+                flex-shrink: 0;
+
+                .logout {
+                    font-size: 1.3rem;
+                    font-weight: 500;
+                    white-space: nowrap;
+                }
             }
+        }
+
+        .buttons-row {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    header .header-wrapper .navbar {
+        padding: 0 0.5rem;
+
+        .header-left-actions-wrapper .logo img {
+            height: 2.25rem;
+            max-width: 8rem;
         }
     }
 }

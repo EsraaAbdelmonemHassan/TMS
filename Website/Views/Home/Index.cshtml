@@ -1,39 +1,106 @@
 @{
     Layout = "~/Views/Layouts/Blank.cshtml";
     ViewData["Title"] = "TMS – Training Management System";
+    var isAdmin = ViewBag.IsAdmin == true;
 }
 <link rel="stylesheet" href="/styles/home/styles.css?v=@Settings.ResourceVersion" type="text/css" />
 
 <div class="tms-home">
+    <header class="tms-home__header">
+        <a class="tms-home__logo" href="/home" title="TMS Home">
+            <img src="~/img/Logo.jpg" alt="TMS – Training Management System" width="140" height="48" />
+        </a>
+    </header>
     <section class="tms-home__hero">
         <div class="tms-home__panel">
-            <span class="tms-home__badge">Training Management</span>
-            <h1>Welcome to TMS</h1>
-            <p class="tms-home__lead">
-                Manage products, orders, customers, students, and your team from one place.
-                Create an account or sign in to access the admin area.
-            </p>
-            <div class="tms-home__actions">
-                <a class="tms-home__btn tms-home__btn--primary" href="/login">Sign in</a>
-                <a class="tms-home__btn tms-home__btn--outline" href="/register">Create account</a>
-            </div>
-            <ul class="tms-home__features">
-                <li class="tms-home__feature">
-                    <strong>Products &amp; categories</strong>
-                    <span>Catalogue and export tools</span>
-                </li>
-                <li class="tms-home__feature">
-                    <strong>Orders &amp; customers</strong>
-                    <span>Sales and client records</span>
-                </li>
-                <li class="tms-home__feature">
-                    <strong>Students &amp; courses</strong>
-                    <span>Enrolments and progress</span>
-                </li>
-            </ul>
+            @if (isAdmin)
+            {
+                <span class="tms-home__badge">Administrator</span>
+                <h1>Welcome back</h1>
+                <p class="tms-home__lead">
+                    Choose an area below to manage products, sales, students, and your organisation.
+                </p>
+                <nav class="tms-home__dashboard" aria-label="Admin modules">
+                    <a class="tms-home__card" href="/admin/products">
+                        <strong>Products</strong>
+                        <span>Catalogue and CSV export</span>
+                    </a>
+                    <a class="tms-home__card" href="/admin/categories">
+                        <strong>Categories</strong>
+                        <span>Product grouping</span>
+                    </a>
+                    <a class="tms-home__card" href="/admin/orders">
+                        <strong>Orders</strong>
+                        <span>Sales records</span>
+                    </a>
+                    <a class="tms-home__card" href="/admin/customers">
+                        <strong>Customers</strong>
+                        <span>Client accounts</span>
+                    </a>
+                    <a class="tms-home__card" href="/admin/students">
+                        <strong>Students</strong>
+                        <span>Enrolments and progress</span>
+                    </a>
+                    <a class="tms-home__card" href="/admin/courses">
+                        <strong>Courses</strong>
+                        <span>Training catalogue</span>
+                    </a>
+                    <a class="tms-home__card" href="/admin/departments">
+                        <strong>Departments</strong>
+                        <span>Organisation structure</span>
+                    </a>
+                    <a class="tms-home__card" href="/admin/employees">
+                        <strong>Employees</strong>
+                        <span>Staff directory</span>
+                    </a>
+                    <a class="tms-home__card" href="/admin/settings">
+                        <strong>Settings</strong>
+                        <span>Contacts and administrators</span>
+                    </a>
+                </nav>
+                <div class="tms-home__actions tms-home__actions--admin">
+                    <a class="tms-home__btn tms-home__btn--primary" href="/admin/products">Open products</a>
+                    <a class="tms-home__btn tms-home__btn--outline" href="/logout">Sign out</a>
+                </div>
+            }
+            else
+            {
+                <span class="tms-home__badge">Training Management</span>
+                <h1>Welcome to TMS</h1>
+                <p class="tms-home__lead">
+                    Manage products, orders, customers, students, and your team from one place.
+                    Create an account or sign in to access the admin area.
+                </p>
+                <div class="tms-home__actions">
+                    <a class="tms-home__btn tms-home__btn--primary" href="/login">Sign in</a>
+                    <a class="tms-home__btn tms-home__btn--outline" href="/register">Create account</a>
+                </div>
+                <ul class="tms-home__features">
+                    <li class="tms-home__feature">
+                        <strong>Products &amp; categories</strong>
+                        <span>Catalogue and export tools</span>
+                    </li>
+                    <li class="tms-home__feature">
+                        <strong>Orders &amp; customers</strong>
+                        <span>Sales and client records</span>
+                    </li>
+                    <li class="tms-home__feature">
+                        <strong>Students &amp; courses</strong>
+                        <span>Enrolments and progress</span>
+                    </li>
+                </ul>
+            }
         </div>
     </section>
     <footer class="tms-home__footer">
-        After login, administrators are taken to <a href="/admin/products" style="color: inherit;">Products</a>.
+        <span class="tms-home__copyright">&copy; @DateTime.Now.Year TMS. All rights reserved.</span>
+        @if (isAdmin)
+        {
+            <span class="tms-home__footer-note">Signed in as administrator · <a href="/admin/products">Admin area</a></span>
+        }
+        else
+        {
+            <span class="tms-home__footer-note">Sign in to access the training management dashboard.</span>
+        }
     </footer>
 </div>

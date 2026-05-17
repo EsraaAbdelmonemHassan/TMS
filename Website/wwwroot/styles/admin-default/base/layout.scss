@@ -41,6 +41,11 @@
         overflow-y: scroll;
         background-color: $gray-background;
         color: $black-primary;
+        min-height: calc(100vh - #{$header-height});
+
+        > footer {
+            flex-shrink: 0;
+        }
 
         .content-wrapper {
             flex: 1;

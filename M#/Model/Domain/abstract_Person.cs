@@ -2,11 +2,10 @@ using MSharp;
 
 namespace Domain
 {
-    public abstract class Person : EntityType
+    public class Person : EntityType
     {
         public Person()
         {
-            Abstract();
 
             String("FirstName", 100).Mandatory();
             String("LastName", 100).Mandatory();
