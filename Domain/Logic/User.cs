@@ -35,7 +35,7 @@ namespace Domain
         {
             await base.OnSaved(e);
 
-            if (e.Mode == SaveMode.Insert)
+            if (e.Mode == SaveMode.Insert && Password.IsEmpty())
                 await PasswordResetService.RequestTicket(this);
         }
     }

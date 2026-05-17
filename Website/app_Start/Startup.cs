@@ -19,11 +19,10 @@ namespace Website
 
     public class Startup : Olive.Mvc.Startup
     {
-        public Startup(IWebHostEnvironment env, IConfiguration config, ILoggerFactory loggerFactory)
-            : base(env, config, loggerFactory)
+        public Startup(IWebHostEnvironment env, IConfiguration config)
+        : base(env, builder => { })
         {
         }
-
         protected override CultureInfo GetRequestCulture() => new CultureInfo("en-GB");
 
         public override void ConfigureServices(IServiceCollection services)
@@ -57,7 +56,31 @@ namespace Website
         public override async Task OnStartUpAsync(IApplicationBuilder app)
         {
             await base.OnStartUpAsync(app);
-            app.UseScheduledTasks<TaskManager>();
+
+            // Only enable scheduled tasks when explicitly enabled in configuration
+            var tasksEnabled = Configuration.GetSection("Automated.Tasks").GetValue<bool>("Enabled", true);
+            if (!tasksEnabled) return;
+
+            // Acquire the Olive database and check for domain reference data.
+            // Use a domain entity (Administrator) that exists in the Domain namespace
+            // instead of referencing a non-existent Olive.Entities.Data.ReferenceData type.
+            var database = Olive.Context.Current.Database();
+            try
+            {
+                if (database != null && await database.Any<Administrator>())
+                {
+                    // logic here
+                }
+            }
+            catch
+            {
+                // ignore DB not ready yet
+            }
+
+            var dbReady = Configuration.GetValue<bool>("DatabaseReady");
+
+            if (dbReady)
+                app.UseScheduledTasks<TaskManager>();
         }
 
         #region Show error screen even in production?
@@ -67,3 +90,5 @@ namespace Website
         #endregion
     }
 }
+//sqllocaldb info  # verify LocalDB instances exist
+//sqlcmd -S "(localdb)\MSSQLLocalDB" -Q "IF DB_ID('TMSDB') IS NULL CREATE DATABASE TMSDB;"

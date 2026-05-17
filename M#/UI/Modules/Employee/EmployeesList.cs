@@ -17,13 +17,13 @@ namespace Modules
             Column(x => x.LastName);
             Column(x => x.Department);
             
-            Button("New Employee").Icon(fa.plus)
+            Button("New Employee").Icon(FA.Plus)
                 .OnClick(x => x.Go<Admin.Employee.EnterPage>().SendReturnUrl());
 
-            ButtonColumn("Edit").Icon(fa.edit)
+            ButtonColumn("Edit").Icon(FA.Edit)
                 .OnClick(x => x.Go<Admin.Employee.EnterPage>().Send("item", "item.ID").SendReturnUrl());
 
-            ButtonColumn("Delete").Icon(fa.trash)
+            ButtonColumn("Delete").Icon(FA.Trash)
                 .OnClick(x =>
                 {
                     x.DeleteItem();

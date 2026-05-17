@@ -1,17 +1,39 @@
 @{
     Layout = "~/Views/Layouts/Blank.cshtml";
-    ViewData["Title"] = "TMS Dashboard";
+    ViewData["Title"] = "TMS – Training Management System";
 }
+<link rel="stylesheet" href="/styles/home/styles.css?v=@Settings.ResourceVersion" type="text/css" />
 
-<div class="container mt-4">
-    <h1>TMS Dashboard</h1>
-    <p>Select a section to manage data.</p>
-
-    <ul>
-        <li><a href="/contacts">Contacts</a></li>
-        <li><a href="/departments">Departments</a></li>
-        <li><a href="/employees">Employees</a></li>
-        <li><a href="/administrators">Administrators</a></li>
-        <li><a href="/settings">Settings</a></li>
-    </ul>
+<div class="tms-home">
+    <section class="tms-home__hero">
+        <div class="tms-home__panel">
+            <span class="tms-home__badge">Training Management</span>
+            <h1>Welcome to TMS</h1>
+            <p class="tms-home__lead">
+                Manage products, orders, customers, students, and your team from one place.
+                Create an account or sign in to access the admin area.
+            </p>
+            <div class="tms-home__actions">
+                <a class="tms-home__btn tms-home__btn--primary" href="/login">Sign in</a>
+                <a class="tms-home__btn tms-home__btn--outline" href="/register">Create account</a>
+            </div>
+            <ul class="tms-home__features">
+                <li class="tms-home__feature">
+                    <strong>Products &amp; categories</strong>
+                    <span>Catalogue and export tools</span>
+                </li>
+                <li class="tms-home__feature">
+                    <strong>Orders &amp; customers</strong>
+                    <span>Sales and client records</span>
+                </li>
+                <li class="tms-home__feature">
+                    <strong>Students &amp; courses</strong>
+                    <span>Enrolments and progress</span>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <footer class="tms-home__footer">
+        After login, administrators are taken to <a href="/admin/products" style="color: inherit;">Products</a>.
+    </footer>
 </div>

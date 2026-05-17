@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel='stylesheet' href="/styles/login/styles.css?v=1.0.0.0" type='text/css' />
+    <!--[if lt IE 11]> <script src='https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js'></script> <![endif]-->
+</head>
+<body>
+	<main>
+    <div class="content-wrapper">
+        <div class="content"> <div class="login-content">
+   <div class="card login">
+      <div class="card-body">
+         
+
+
+<!-- Modules\User\LoginForm.cs:7 -->
+<form data-module="LoginForm" role="form" method="post" action="/login" data-validation-style="tooltip" class="input-form">
+   <input name="__RequestVerificationToken" type="hidden" value="CfDJ8Kg9b6VamJBGj0whgC4jah56uprxlvdjbD527fm5XwqA5n3H1DSv6xX_9NDd3onV9W4jzJgUh2QGyIG_z2mFITbS0u1L7Ox8OKCSAu889bWbQyaj4wh3kJoNdsljBbgsjlVB_HGr3MUOcMS4s5gMcak" />
+   
+   <h2>Login</h2>
+   <div class="form-body">
+      <div class="form-group row required-item">
+         <label for="Email" class="control-label">
+            Email
+         </label>
+         <div class="group-control">
+            <input type="text" class="form-control input-validation-error" placeholder="Your email" data-val="true" data-val-email="Email should be a valid Email address." data-val-length="Email should not exceed 100 characters." data-val-length-max="100" data-val-required="The Email field is required." id="Email" maxlength="100" name="Email" value="" />
+         </div>
+      </div>
+      <div class="form-group row required-item">
+         <label for="Password" class="control-label">
+            Password
+         </label>
+         <div class="group-control">
+            <input type="password" class="form-control input-validation-error" placeholder="Your password" data-val="true" data-val-length="Password should not exceed 100 characters." data-val-length-max="100" data-val-required="The Password field is required." id="Password" maxlength="100" name="Password" />
+         </div>
+      </div>
+   </div>
+   <div class="buttons-row">
+      <div class="buttons">
+         <button type="submit" name="Login" class="w-100 btn-login mb-2 btn" formaction='/LoginForm/Login' default-button="true" onclick="page.waiting.show();">Login</button>
+         <a name="ForgotPassword" class="text-info" href='/login/forgot-password'>Forgot password?</a>
+      </div>
+   </div>
+   <input type="hidden" data-val="true" data-val-required="The ShowCaptcha field is required." id="ShowCaptcha" name="ShowCaptcha" value="False" />
+</form>
+
+            
+
+
+<!-- Modules\User\SocialMediaLogin.cs:7 -->
+<form data-module="SocialMediaLogin" role="form" method="post" action="/login" data-validation-style="tooltip" class="input-form social-media-login p-4">
+   <input name="__RequestVerificationToken" type="hidden" value="CfDJ8Kg9b6VamJBGj0whgC4jah56uprxlvdjbD527fm5XwqA5n3H1DSv6xX_9NDd3onV9W4jzJgUh2QGyIG_z2mFITbS0u1L7Ox8OKCSAu889bWbQyaj4wh3kJoNdsljBbgsjlVB_HGr3MUOcMS4s5gMcak" />
+   
+   <h3>
+      Other ways to sign in
+   </h3>
+   <div class="form-body">
+   </div>
+   <div class="buttons-row">
+      <div class="buttons">
+         <button type="submit" name="Facebook" class="btn-social-login btn-facebook btn" formaction='/SocialMediaLogin/Facebook' formmethod='post'><i class="fab fa-facebook-f"></i>
+            Facebook</button>
+         <button type="submit" name="Google" class="btn-social-login btn-google btn" formaction='/SocialMediaLogin/Google' formmethod='post'><i class="fab fa-google-plus-g"></i>
+            Google</button>
+      </div>
+   </div>
+</form>
+
+            </div>
+         </div>
+      </div>
+ </div>
+    </div>
+    <footer>
+
+
+<!-- Modules\-Custom\Footer.cs:14 -->
+<form data-module="Footer" method="post" action="/login" class="website-footer">
+   <input name="__RequestVerificationToken" type="hidden" value="CfDJ8Kg9b6VamJBGj0whgC4jah56uprxlvdjbD527fm5XwqA5n3H1DSv6xX_9NDd3onV9W4jzJgUh2QGyIG_z2mFITbS0u1L7Ox8OKCSAu889bWbQyaj4wh3kJoNdsljBbgsjlVB_HGr3MUOcMS4s5gMcak" />
+   
+   <div>
+      <a name="Email" title="Contact Us" aria-label="Contact Us" href="http://www.geeks.ltd.uk/software-development-quote.html" target="_blank"><i class="fas fa-envelope-square fa-3x"></i></a>
+      <a name="LinkedIn" title="LinkedIn" aria-label="LinkedIn" href="http://www.linkedin.com/company/geeks-ltd" target="_blank"><i class="fab fa-linkedin fa-3x"></i></a>
+      <a name="Facebook" title="Facebook" aria-label="Facebook" href="https://www.facebook.com/geeksltd" target="_blank"><i class="fab fa-facebook-square fa-3x"></i></a>
+      <a name="Twitter" title="Twitter" aria-label="Twitter" href="https://twitter.com/GeeksLtd" target="_blank"><i class="fab fa-twitter-square fa-3x"></i></a>
+      <br/>
+      <a name="SoftwareDevelopment" class="plain-text" href="http://www.geeks.ltd.uk" target="_blank">Software development</a>
+      by
+      <a name="Geeks" href="http://www.geeks.ltd.uk" target="_blank">Geeks</a>
+      &copy; 2026. All rights reserved.
+   </div>
+</form>
+</footer>
+        <script src="/lib/requirejs/require.js" data-main="/scripts/references.js?v=1"></script>
+    
+
+    <div class='webtest-commands' style='position: fixed; left: 45%; bottom: 0; text-align: center; width: 200px;margin-bottom:-150px; transition: margin-bottom 0.25s ease; background: #2ea8eb; color: #fff; font-size: 12px; font-family:Arial;' onmouseover='this.style.marginBottom="0"' onmouseout='this.style.marginBottom="-150px"'><div style='width: 100%; background-color:#1b648d; padding: 3px 0;font-size: 13px; font-weight: 700;'>Commands...</div>
+<div style='width: 100%; height:30px; box-sizing:border-box; padding: 4px 0;'>
+                                  <a href='/cmd/scheduled-tasks' style='color: #fff;'>
+                                      Tasks...
+                                  </a>
+                                </div>
+<div style='width: 100%; height:30px; box-sizing:border-box; padding: 4px 0;'>
+                                  <a href='/cmd/db-clear-cache' style='color: #fff;'>
+                                      Clear DB cache
+                                  </a>
+                                </div>
+<div style='width: 100%; height:30px; box-sizing:border-box; padding: 4px 0;'>
+                                  <a href='/cmd/db-profile-start' style='color: #fff;'>
+                                      SQL Profiling: Start
+                                  </a>
+                                </div>
+<div style='width: 100%; height:30px; box-sizing:border-box; padding: 4px 0;'>
+                                  <a href='/cmd/db-profile-snapshot' style='color: #fff;'>
+                                      SQL Profiling: Take snapshot
+                                  </a>
+                                </div>
+<div style='width: 100%; height:30px; box-sizing:border-box; padding: 4px 0;'>
+                                  <a href='/cmd/db-profile-stop' style='color: #fff;'>
+                                      SQL Profiling: Stop
+                                  </a>
+                                </div>
+</div>
+
+    
+</main>
+</body>
+</html>

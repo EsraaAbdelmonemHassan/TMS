@@ -52,6 +52,10 @@ namespace Modules
 
             Link("Forgot password?").CssClass("text-info").OnClick(x => x.Go<Login.ForgotPasswordPage>());
 
+            Link("Create account").CssClass("text-info d-block text-center mt-2").OnClick(x => x.Go<RegisterPage>());
+
+            Link("Back to home").CssClass("text-muted d-block text-center mt-3").OnClick(x => x.Go("/home"));
+
             ViewModelProperty<bool>("ShowCaptcha").RetainInPost();
             ViewModelProperty<string>("CaptchaCode").NotReadOnly();
         }

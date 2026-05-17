@@ -20,6 +20,7 @@
                     @include regular-font;
                     @include left-border;
                     border-bottom: 0.1rem solid $border-color;
+                    transition: background-color 0.2s ease, color 0.2s ease;
 
                     &:hover, &:focus, &:active {
                         background-color: $color-primary-lighten;

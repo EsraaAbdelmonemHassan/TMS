@@ -22,5 +22,5 @@ $fa-var-sort-desc: "\f0de";
 
 // shim for olive font awesome upgrade
 .fas {
-    @extend .fa;
+    @extend .fa !optional;
 }

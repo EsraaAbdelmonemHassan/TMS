@@ -9,11 +9,30 @@
     <DockerServiceName>website</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="abstract_Person.cs" />
+    <None Include="Category.cs" />
+    <None Include="Controllers\SomeController.cs" />
+    <None Include="Course.cs" />
+    <None Include="csharp Website\app_Start\Startup.cs" />
+    <None Include="Customer.cs" />
     <None Include="docker-compose.override.yml">
       <DependentUpon>docker-compose.yml</DependentUpon>
     </None>
     <None Include="docker-compose.yml" />
     <None Include=".dockerignore" />
     <None Include="docker-compose.ci.build.yml" />
+    <None Include="Employee.cs" />
+    <None Include="Header.cs" />
+    <None Include="IndexModel.cs" />
+    <None Include="MainMenu.cs" />
+    <None Include="Order.cs" />
+    <None Include="OrderItem.cs" />
+    <None Include="Pages\Home\Index.cshtml.cs" />
+    <None Include="Product.cs" />
+    <None Include="ProductEnterPage.cs" />
+    <None Include="ProductsList.cs" />
+    <None Include="ProductViewPage.cs" />
+    <None Include="Student.cs" />
+    <None Include="StudentCourse.cs" />
   </ItemGroup>
 </Project>

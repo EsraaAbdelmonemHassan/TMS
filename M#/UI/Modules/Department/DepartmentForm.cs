@@ -12,14 +12,14 @@ namespace Modules
             Field(x => x.Name);
             Field(x => x.Description);
 
-            Button("Save").IsDefault().Icon(fa.check)
+            Button("Save").IsDefault().Icon(FA.Check)
                 .OnClick(x =>
                 {
                     x.SaveInDatabase();
                     x.ReturnToPreviousPage();
                 });
 
-            Button("Cancel").Icon(fa.times)
+            Button("Cancel").Icon(FA.Times)
                 .OnClick(x => x.ReturnToPreviousPage());
         }
     }

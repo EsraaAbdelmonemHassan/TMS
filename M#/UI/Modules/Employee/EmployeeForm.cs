@@ -13,14 +13,14 @@ namespace Modules
             Field(x => x.LastName);
             Field(x => x.Department).Control(ControlType.DropdownList);
 
-            Button("Save").IsDefault().Icon(fa.check)
+            Button("Save").IsDefault().Icon(FA.Check)
                 .OnClick(x =>
                 {
                     x.SaveInDatabase();
                     x.ReturnToPreviousPage();
                 });
 
-            Button("Cancel").Icon(fa.times)
+            Button("Cancel").Icon(FA.Times)
                 .OnClick(x => x.ReturnToPreviousPage());
         }
     }

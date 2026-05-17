@@ -23,6 +23,9 @@ namespace App
 
             AutoTask("Clean old temp uploads").Every(10, TimeUnit.Minute)
                 .Run("await new Olive.Mvc.DiskFileRequestService().DeleteTempFiles(olderThan: 1.Hours());");
+
+            AutoTask("Mark expired orders").Every(1, TimeUnit.Day)
+                .Run("await Domain.OrderMaintenance.MarkExpiredAsync();");
         }
     }
 }

@@ -1,0 +1,142 @@
+@import "../common/utilities/colors";
+
+.tms-home {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    color: #1a2b3c;
+    background: linear-gradient(145deg, #0f2f2e 0%, #1a4a49 35%, #2cb3b1 100%);
+
+    &__hero {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 3rem 1.5rem;
+    }
+
+    &__panel {
+        max-width: 52rem;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.97);
+        border-radius: 1rem;
+        box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.18);
+        padding: 3rem 2.5rem;
+        text-align: center;
+    }
+
+    &__badge {
+        display: inline-block;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: $color-primary-darken;
+        background: $color-primary-lighten;
+        padding: 0.35rem 0.85rem;
+        border-radius: 2rem;
+        margin-bottom: 1.25rem;
+    }
+
+    h1 {
+        font-size: 2.25rem;
+        font-weight: 700;
+        margin: 0 0 0.75rem;
+        color: #0f2f2e;
+        line-height: 1.2;
+    }
+
+    &__lead {
+        font-size: 1.125rem;
+        color: #4a5d6e;
+        margin: 0 0 2rem;
+        line-height: 1.6;
+    }
+
+    &__actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+        margin-bottom: 2.5rem;
+    }
+
+    &__btn {
+        display: inline-block;
+        padding: 0.85rem 1.75rem;
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        border-radius: 0.35rem;
+        transition: background-color 0.2s, transform 0.15s;
+
+        &--primary {
+            background: $color-primary;
+            color: $on-color-primary;
+            border: 2px solid $color-primary-darken;
+
+            &:hover {
+                background: $color-primary-darken;
+                color: $on-color-primary;
+                transform: translateY(-1px);
+            }
+        }
+
+        &--outline {
+            background: transparent;
+            color: $color-primary-darken;
+            border: 2px solid $color-primary;
+
+            &:hover {
+                background: $color-primary-lighten;
+                color: $color-primary-darken;
+            }
+        }
+    }
+
+    &__features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+        gap: 1.25rem;
+        text-align: left;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    &__feature {
+        padding: 1rem 1.1rem;
+        background: $color-primary-lighten;
+        border-radius: 0.5rem;
+        border-left: 0.25rem solid $color-primary;
+
+        strong {
+            display: block;
+            color: $color-primary-darken;
+            margin-bottom: 0.25rem;
+        }
+
+        span {
+            font-size: 0.9rem;
+            color: #4a5d6e;
+        }
+    }
+
+    &__footer {
+        text-align: center;
+        padding: 1rem;
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.75);
+    }
+}
+
+@media (max-width: 480px) {
+    .tms-home__panel {
+        padding: 2rem 1.25rem;
+    }
+
+    .tms-home h1 {
+        font-size: 1.75rem;
+    }
+}

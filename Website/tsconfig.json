@@ -1,12 +1,26 @@
 {
   "compilerOptions": {
+    "target": "es2015",
+    "module": "amd",
+    "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
-      "olive/*": [ "wwwroot/lib/olive.mvc/typings/*" ]
+      "olive": [
+        "wwwroot/lib/olive.mvc/dist"
+      ],
+      "olive/*": [
+        "wwwroot/lib/olive.mvc/dist/*"
+      ]
     },
-    "module": "amd",
-    "target": "es2015",
-    "sourceMap": true,    
+    "skipLibCheck": true,
+    "ignoreDeprecations": "6.0",
+    "strict": false,
+    "esModuleInterop": true,
+    "lib": [
+      "es2015",
+      "dom"
+    ],
+    "sourceMap": true,
     "noImplicitAny": false,
     "noEmitOnError": true,
     "removeComments": false
@@ -21,5 +35,9 @@
     "wwwroot/lib/yargs",
     "obj",
     "bin"
+  ],
+  "include": [
+    "wwwroot/scripts/**/*",
+    "wwwroot/lib/**/*"
   ]
 }

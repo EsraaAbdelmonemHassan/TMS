@@ -1,4 +1,4 @@
-using Olive;
+﻿using Olive;
 using Olive.Entities;
 using Olive.Entities.Data;
 using Olive.Security;
@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
+    public sealed class SeedCustomer : Customer { }
+
     public class ReferenceData : IReferenceData
     {
         static IDatabase Database => Context.Current.Database();
@@ -22,6 +24,63 @@ namespace Domain
 
             await CreateAdmins();
             await CreateContacts();
+            await CreateCatalog();
+        }
+
+        async Task CreateCatalog()
+        {
+            var electronics = await Create(new Category { Name = "Electronics", IsActive = true, SortOrder = 1 });
+            var books = await Create(new Category { Name = "Books", IsActive = true, SortOrder = 2 });
+
+            var phone = await Create(new Product
+            {
+                Name = "Smartphone",
+                Code = "PH-001",
+                Price = 499.99m,
+                Quantity = 25,
+                IsActive = true,
+                Category = electronics
+            });
+
+            await Create(new Product
+            {
+                Name = "Programming book",
+                Code = "BK-001",
+                Price = 29.99m,
+                Quantity = 100,
+                IsActive = true,
+                Category = books
+            });
+
+            var customer = await Create(new SeedCustomer
+            {
+                FirstName = "Ahmed",
+                LastName = "Ali",
+                Email = "ahmed@example.com",
+                CustomerCode = "CUST-001",
+                CreditLimit = 5000m
+            });
+
+            var order = await Create(new Order
+            {
+                Customer = customer,
+                Status = "Pending",
+                IsApproved = false
+            });
+
+            await Create(new OrderItem
+            {
+                Order = order,
+                Product = phone,
+                Quantity = 2,
+                UnitPrice = phone.Price
+            });
+
+            await order.RecalculateTotalAsync();
+
+            var course = await Create(new Course { Name = "MSharp Programming", Code = "CS101" });
+            var student = await Create(new Student { FirstName = "Sara", LastName = "Mohammed" });
+            await Create(new StudentCourse { Student = student, Course = course });
         }
 
         async Task CreateAdmins()
@@ -79,3 +138,4 @@ namespace Domain
         }
     }
 }
+

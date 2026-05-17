@@ -1,4 +1,3 @@
-
 import OlivePage from 'olive/olivePage';
 import Config from 'olive/config';
 import { ConfirmBox } from 'olive/plugins/confirmBox';
@@ -36,7 +35,8 @@ export default class AppPage extends OlivePage {
         var confirmMessage = $element.data("confirm-message");
         var isArchived = $element.hasClass("item-archived");
         if (confirmMessage)
-            new ConfirmBox(null)
+            // Pass a real jQuery element instead of null to satisfy the typed constructor
+            new ConfirmBox($(document.body))
                 .showConfirm(confirmMessage.replace("[#NEXT_STATUS_ACTION#]", isArchived ? "unarchive" : "archive"), toggleArchiveRequest);
         else
             toggleArchiveRequest();

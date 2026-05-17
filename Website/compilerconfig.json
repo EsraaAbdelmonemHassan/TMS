@@ -14,5 +14,9 @@
   {
     "outputFile": "wwwroot/styles/admin-default/styles.css",
     "inputFile": "wwwroot/styles/admin-default/styles.scss"
+  },
+  {
+    "outputFile": "wwwroot/styles/home/styles.css",
+    "inputFile": "wwwroot/styles/home/styles.scss"
   }
 ]

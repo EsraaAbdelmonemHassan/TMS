@@ -61,7 +61,7 @@ requirejs.config({
     }
 });
 
-requirejs(["app/appPage", "olive/olivePage",
+requirejs(["app/AppPage", "olive/olivePage",
     // JQuery:
     "jquery", "jquery-ui/ui/widget", "jquery-ui/ui/focusable", "jquery-validate", "jquery-validate-unobtrusive", "olive/extensions/jQueryExtensions",
     // JQuery plugins:

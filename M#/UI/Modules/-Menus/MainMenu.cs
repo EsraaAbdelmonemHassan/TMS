@@ -1,5 +1,5 @@
-using MSharp;
 using Domain;
+using MSharp;
 
 namespace Modules
 {
@@ -13,8 +13,13 @@ namespace Modules
             IsViewComponent().UlCssClass("nav flex-column");
             RootCssClass("sidebar-menu");
 
-            Link("Departments").Go<Admin.DepartmentsPage>().Icon(fa.building);
-            Link("Employees").Go<Admin.EmployeesPage>().Icon(fa.users);
+            Link("Products").Go<Admin.ProductsPage>().Icon(FA.ProductHunt);
+            Link("Categories").Go<Admin.CategoriesPage>().Icon(FA.Folder);
+            Link("Orders").Go<Admin.OrdersPage>().Icon(FA.ShoppingCart);
+            Link("Customers").Go<Admin.CustomersPage>().Icon(FA.AddressBook);
+            Link("Students").Go<Admin.StudentsPage>().Icon(FA.GraduationCap);
+            Link("Departments").Go<Admin.DepartmentsPage>().Icon(FA.Building);
+            Link("Employees").Go<Admin.EmployeesPage>().Icon(FA.Users);
 
             Link("Logout")
                  .CssClass("align-bottom logout")
